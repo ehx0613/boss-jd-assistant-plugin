@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boss JD 打招呼助手</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <h1>打招呼助手</h1>
+          <p id="statusText">打开 Boss 岗位页后开始识别</p>
+        </div>
+      </header>
+
+      <section class="toolbar">
+        <button id="recognizeBtn" type="button">识别岗位</button>
+        <button id="screenshotBtn" type="button" class="secondary">截图识别</button>
+      </section>
+
+      <section class="section">
+        <label for="jobTitle">岗位名称</label>
+        <input id="jobTitle" type="text" placeholder="识别后自动填充" />
+      </section>
+
+      <section class="section">
+        <label for="companyName">公司名称</label>
+        <input id="companyName" type="text" placeholder="可选" />
+      </section>
+
+      <section class="section">
+        <label for="jobDescription">岗位 JD</label>
+        <textarea id="jobDescription" rows="8" placeholder="识别后可手动编辑"></textarea>
+      </section>
+
+      <section class="section">
+        <div class="label-row">
+          <label for="resumeText">我的简历</label>
+          <button id="saveResumeBtn" type="button" class="text-btn">保存</button>
+        </div>
+        <div class="file-row">
+          <input id="resumeFile" type="file" accept=".pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" />
+          <button id="uploadResumeBtn" type="button" class="secondary">上传识别</button>
+        </div>
+        <textarea id="resumeText" rows="7" placeholder="粘贴你的简历文本，默认只保存在本地浏览器"></textarea>
+      </section>
+
+      <section class="section">
+        <label for="toneSelect">语气</label>
+        <select id="toneSelect">
+          <option value="默认">默认</option>
+          <option value="简洁">简洁</option>
+          <option value="专业">专业</option>
+          <option value="热情">热情</option>
+          <option value="技术向">技术向</option>
+        </select>
+      </section>
+
+      <button id="generateBtn" type="button" class="primary">生成话术</button>
+
+      <section id="matchedPoints" class="matched hidden"></section>
+      <section id="results" class="results"></section>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
