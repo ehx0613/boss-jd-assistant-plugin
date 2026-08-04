@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Boss JD 打招呼助手",
+  "description": "识别 Boss 岗位 JD，结合本地简历生成打招呼话术。",
+  "version": "0.1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Boss JD 打招呼助手"
+  },
+  "permissions": [
+    "activeTab",
+    "clipboardWrite",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*.zhipin.com/*",
+    "http://127.0.0.1:8787/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.zhipin.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
